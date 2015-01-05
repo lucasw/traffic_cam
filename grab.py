@@ -27,8 +27,9 @@ while True:
             image_file = cStringIO.StringIO(urllib2.urlopen(url).read())
         except:
             continue
+        cur_time = time.strftime("%Y%m%d_%H%M%S") # str(datetime.datetime.now().time())
             
-        name = 'data/' + cam + '_' + start_time + "_" + str(count) + postfix
+        name = 'data/' + cam + '_' + start_time + "_" + str(count) + "_" + cur_time + postfix
         with open(name, 'w') as fh:
             fh.write(image_file.getvalue())
         #im = cv2.imread(image_file)
